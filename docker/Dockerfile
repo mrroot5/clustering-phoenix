@@ -4,7 +4,8 @@ FROM amd64/elixir:1.18.4-otp-27
 RUN mkdir /app
 
 # Install hex, rebar and phoenix
-RUN mix local.hex --force
+RUN mix local.hex --force && \
+    mix local.rebar --force
 
 # Install required packages
 ENV DEBIAN_FRONTEND=noninteractive

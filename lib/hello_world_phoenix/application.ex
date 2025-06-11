@@ -7,9 +7,13 @@ defmodule HelloWorldPhoenix.Application do
 
   @impl true
   def start(_type, _args) do
+    topologies = Application.get_env(:libcluster, :topologies)
+
     children = [
+      {Cluster.Supervisor, [topologies, [name: HelloWorldPhoenix.ClusterSupervisor]]},
       HelloWorldPhoenixWeb.Telemetry,
-      {DNSCluster, query: Application.get_env(:hello_world_phoenix, :dns_cluster_query) || :ignore},
+      {DNSCluster,
+       query: Application.get_env(:hello_world_phoenix, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: HelloWorldPhoenix.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: HelloWorldPhoenix.Finch},
