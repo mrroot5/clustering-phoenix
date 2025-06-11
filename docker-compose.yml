@@ -2,21 +2,21 @@ networks:
   default:
     name: clustering_phoenix_net
 
-name: clustering-phoenix
+name: hello_world_phoenix
 
 services:
-  clustering_phoenix:
+  web:
     build:
       context: .
       dockerfile: ./docker/Dockerfile
     command:
-      elixir -S mix phx.server
+      ["sh", "-c", "elixir --sname web_$(hostname) --cookie web -S mix phx.server"]
     entrypoint: ['./docker/entrypoint.sh']
     ports:
-      - "4000-4010:4000"
+      - "4000-4003:4000"
     deploy:
       mode: replicated
-      replicas: 2
+      replicas: 4
       resources:
         limits:
           cpus: 1
