@@ -2,7 +2,7 @@ networks:
   default:
     name: clustering_phoenix_net
 
-name: hello_world_phoenix
+name: clustering_phoenix
 
 services:
   web:
