@@ -1,18 +1,19 @@
 # HelloWorldPhoenix
 
-To start your Phoenix server:
+I pretty simple project to demonstrate how to create a phoenix cluster using docker.
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+## Results
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Pings made with [Node.ping()](https://hexdocs.pm/elixir/Node.html#ping/1).
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+### Multiple containers up and running
 
-## Learn more
+![docker-ps](docs/images/docker-ps.png)
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+### Ping a random node
+
+![docker-ps](docs/images/ping-multiple-nodes.png)
+
+### Ping yourself because there is just one node
+
+![docker-ps](docs/images/ping-yourself.png)
