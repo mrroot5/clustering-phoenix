@@ -1,0 +1,14 @@
+<.header>
+  <%= @page_title %>
+</.header>
+
+<h2><strong>Node info</strong>: <%= @node_info %></h2><br>
+
+<h2><strong>Node list</strong></h2><br>
+
+<ul :for={node <- @node_list}>
+    <li>{node}</li>
+</ul>
+<br>
+<button style="background-color: blue; color:white; border-radius: 10px; padding: 0.5rem;" phx-click="random_ping">Ping random Node</button><br>
+<h2><strong>Ping Result</strong>: <%= @random_ping %> </h2>
