@@ -7,18 +7,18 @@
 # General application configuration
 import Config
 
-config :hello_world_phoenix,
+config :clustering_phoenix,
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :hello_world_phoenix, HelloWorldPhoenixWeb.Endpoint,
+config :clustering_phoenix, ClusteringPhoenixWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: HelloWorldPhoenixWeb.ErrorHTML, json: HelloWorldPhoenixWeb.ErrorJSON],
+    formats: [html: ClusteringPhoenixWeb.ErrorHTML, json: ClusteringPhoenixWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: HelloWorldPhoenix.PubSub,
+  pubsub_server: ClusteringPhoenix.PubSub,
   live_view: [signing_salt: "hHEFl6bY"]
 
 # Configures the mailer
@@ -28,12 +28,12 @@ config :hello_world_phoenix, HelloWorldPhoenixWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :hello_world_phoenix, HelloWorldPhoenix.Mailer, adapter: Swoosh.Adapters.Local
+config :clustering_phoenix, ClusteringPhoenix.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",
-  hello_world_phoenix: [
+  clustering_phoenix: [
     args:
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
@@ -43,7 +43,7 @@ config :esbuild,
 # Configure tailwind (the version is required)
 config :tailwind,
   version: "3.4.3",
-  hello_world_phoenix: [
+  clustering_phoenix: [
     args: ~w(
       --config=tailwind.config.js
       --input=css/app.css

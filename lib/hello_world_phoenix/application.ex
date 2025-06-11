@@ -1,4 +1,4 @@
-defmodule HelloWorldPhoenix.Application do
+defmodule ClusteringPhoenix.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -10,22 +10,22 @@ defmodule HelloWorldPhoenix.Application do
     topologies = Application.get_env(:libcluster, :topologies)
 
     children = [
-      {Cluster.Supervisor, [topologies, [name: HelloWorldPhoenix.ClusterSupervisor]]},
-      HelloWorldPhoenixWeb.Telemetry,
+      {Cluster.Supervisor, [topologies, [name: ClusteringPhoenix.ClusterSupervisor]]},
+      ClusteringPhoenixWeb.Telemetry,
       {DNSCluster,
-       query: Application.get_env(:hello_world_phoenix, :dns_cluster_query) || :ignore},
-      {Phoenix.PubSub, name: HelloWorldPhoenix.PubSub},
+       query: Application.get_env(:clustering_phoenix, :dns_cluster_query) || :ignore},
+      {Phoenix.PubSub, name: ClusteringPhoenix.PubSub},
       # Start the Finch HTTP client for sending emails
-      {Finch, name: HelloWorldPhoenix.Finch},
-      # Start a worker by calling: HelloWorldPhoenix.Worker.start_link(arg)
-      # {HelloWorldPhoenix.Worker, arg},
+      {Finch, name: ClusteringPhoenix.Finch},
+      # Start a worker by calling: ClusteringPhoenix.Worker.start_link(arg)
+      # {ClusteringPhoenix.Worker, arg},
       # Start to serve requests, typically the last entry
-      HelloWorldPhoenixWeb.Endpoint
+      ClusteringPhoenixWeb.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: HelloWorldPhoenix.Supervisor]
+    opts = [strategy: :one_for_one, name: ClusteringPhoenix.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -33,7 +33,7 @@ defmodule HelloWorldPhoenix.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    HelloWorldPhoenixWeb.Endpoint.config_change(changed, removed)
+    ClusteringPhoenixWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

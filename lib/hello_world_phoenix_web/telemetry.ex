@@ -1,4 +1,4 @@
-defmodule HelloWorldPhoenixWeb.Telemetry do
+defmodule ClusteringPhoenixWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -64,7 +64,7 @@ defmodule HelloWorldPhoenixWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {HelloWorldPhoenixWeb, :count_users, []}
+      # {ClusteringPhoenixWeb, :count_users, []}
     ]
   end
 end

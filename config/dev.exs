@@ -6,7 +6,7 @@ import Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
-config :hello_world_phoenix, HelloWorldPhoenixWeb.Endpoint,
+config :clustering_phoenix, ClusteringPhoenixWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {0, 0, 0, 0}, port: 4000],
@@ -15,8 +15,8 @@ config :hello_world_phoenix, HelloWorldPhoenixWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "xnYGW8VqH+Mw1qR99Vzm4sJbrn/OPszqquoegVOQncEtS+5RSRkpWlYZ5cftbCg5",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:hello_world_phoenix, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:hello_world_phoenix, ~w(--watch)]}
+    esbuild: {Esbuild, :install_and_run, [:clustering_phoenix, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:clustering_phoenix, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -43,17 +43,17 @@ config :hello_world_phoenix, HelloWorldPhoenixWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :hello_world_phoenix, HelloWorldPhoenixWeb.Endpoint,
+config :clustering_phoenix, ClusteringPhoenixWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/hello_world_phoenix_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/clustering_phoenix_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :hello_world_phoenix, dev_routes: true
+config :clustering_phoenix, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
@@ -76,7 +76,7 @@ config :swoosh, :api_client, false
 
 config :libcluster,
   topologies: [
-    hello_world_phoenix: [
+    clustering_phoenix: [
       strategy: Elixir.Cluster.Strategy.Gossip,
       config: [
         multicast_addr: "255.255.255.255"

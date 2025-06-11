@@ -1,9 +1,9 @@
-defmodule HelloWorldPhoenix.MixProject do
+defmodule ClusteringPhoenix.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :hello_world_phoenix,
+      app: :clustering_phoenix,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -18,7 +18,7 @@ defmodule HelloWorldPhoenix.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {HelloWorldPhoenix.Application, []},
+      mod: {ClusteringPhoenix.Application, []},
       extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end
@@ -69,10 +69,10 @@ defmodule HelloWorldPhoenix.MixProject do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind hello_world_phoenix", "esbuild hello_world_phoenix"],
+      "assets.build": ["tailwind clustering_phoenix", "esbuild clustering_phoenix"],
       "assets.deploy": [
-        "tailwind hello_world_phoenix --minify",
-        "esbuild hello_world_phoenix --minify",
+        "tailwind clustering_phoenix --minify",
+        "esbuild clustering_phoenix --minify",
         "phx.digest"
       ]
     ]

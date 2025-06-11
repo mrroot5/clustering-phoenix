@@ -1,12 +1,12 @@
-defmodule HelloWorldPhoenixWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :hello_world_phoenix
+defmodule ClusteringPhoenixWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :clustering_phoenix
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_hello_world_phoenix_key",
+    key: "_clustering_phoenix_key",
     signing_salt: "8ml1Ath+",
     same_site: "Lax"
   ]
@@ -21,9 +21,9 @@ defmodule HelloWorldPhoenixWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :hello_world_phoenix,
+    from: :clustering_phoenix,
     gzip: false,
-    only: HelloWorldPhoenixWeb.static_paths()
+    only: ClusteringPhoenixWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -48,5 +48,5 @@ defmodule HelloWorldPhoenixWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug HelloWorldPhoenixWeb.Router
+  plug ClusteringPhoenixWeb.Router
 end

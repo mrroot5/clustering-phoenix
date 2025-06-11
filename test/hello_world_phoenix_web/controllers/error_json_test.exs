@@ -1,12 +1,14 @@
-defmodule HelloWorldPhoenixWeb.ErrorJSONTest do
-  use HelloWorldPhoenixWeb.ConnCase, async: true
+defmodule ClusteringPhoenixWeb.ErrorJSONTest do
+  use ClusteringPhoenixWeb.ConnCase, async: true
 
   test "renders 404" do
-    assert HelloWorldPhoenixWeb.ErrorJSON.render("404.json", %{}) == %{errors: %{detail: "Not Found"}}
+    assert ClusteringPhoenixWeb.ErrorJSON.render("404.json", %{}) == %{
+             errors: %{detail: "Not Found"}
+           }
   end
 
   test "renders 500" do
-    assert HelloWorldPhoenixWeb.ErrorJSON.render("500.json", %{}) ==
+    assert ClusteringPhoenixWeb.ErrorJSON.render("500.json", %{}) ==
              %{errors: %{detail: "Internal Server Error"}}
   end
 end

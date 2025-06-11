@@ -1,5 +1,5 @@
-defmodule HelloWorldPhoenixWeb.Home.Index do
-  use HelloWorldPhoenixWeb, :live_view
+defmodule ClusteringPhoenixWeb.Home.Index do
+  use ClusteringPhoenixWeb, :live_view
 
   require Logger
 

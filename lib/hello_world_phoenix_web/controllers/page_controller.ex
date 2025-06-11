@@ -1,5 +1,5 @@
-defmodule HelloWorldPhoenixWeb.PageController do
-  use HelloWorldPhoenixWeb, :controller
+defmodule ClusteringPhoenixWeb.PageController do
+  use ClusteringPhoenixWeb, :controller
 
   def home(conn, _params) do
     # The home page is often custom made,

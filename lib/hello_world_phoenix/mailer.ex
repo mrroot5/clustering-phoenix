@@ -1,3 +1,3 @@
-defmodule HelloWorldPhoenix.Mailer do
-  use Swoosh.Mailer, otp_app: :hello_world_phoenix
+defmodule ClusteringPhoenix.Mailer do
+  use Swoosh.Mailer, otp_app: :clustering_phoenix
 end

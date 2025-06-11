@@ -1,6 +1,6 @@
-defmodule HelloWorldPhoenix do
+defmodule ClusteringPhoenix do
   @moduledoc """
-  HelloWorldPhoenix keeps the contexts that define your domain
+  ClusteringPhoenix keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

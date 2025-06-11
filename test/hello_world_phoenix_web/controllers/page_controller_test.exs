@@ -1,5 +1,5 @@
-defmodule HelloWorldPhoenixWeb.PageControllerTest do
-  use HelloWorldPhoenixWeb.ConnCase
+defmodule ClusteringPhoenixWeb.PageControllerTest do
+  use ClusteringPhoenixWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")

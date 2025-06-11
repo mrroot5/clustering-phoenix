@@ -1,4 +1,4 @@
-# HelloWorldPhoenix
+# ClusteringPhoenix
 
 I pretty simple project to demonstrate how to create a phoenix cluster using docker.
 

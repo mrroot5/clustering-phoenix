@@ -1,12 +1,12 @@
-defmodule HelloWorldPhoenixWeb do
+defmodule ClusteringPhoenixWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use HelloWorldPhoenixWeb, :controller
-      use HelloWorldPhoenixWeb, :html
+      use ClusteringPhoenixWeb, :controller
+      use ClusteringPhoenixWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,9 +40,9 @@ defmodule HelloWorldPhoenixWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: HelloWorldPhoenixWeb.Layouts]
+        layouts: [html: ClusteringPhoenixWeb.Layouts]
 
-      use Gettext, backend: HelloWorldPhoenixWeb.Gettext
+      use Gettext, backend: ClusteringPhoenixWeb.Gettext
 
       import Plug.Conn
 
@@ -53,7 +53,7 @@ defmodule HelloWorldPhoenixWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {HelloWorldPhoenixWeb.Layouts, :app}
+        layout: {ClusteringPhoenixWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -83,12 +83,12 @@ defmodule HelloWorldPhoenixWeb do
   defp html_helpers do
     quote do
       # Translation
-      use Gettext, backend: HelloWorldPhoenixWeb.Gettext
+      use Gettext, backend: ClusteringPhoenixWeb.Gettext
 
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components
-      import HelloWorldPhoenixWeb.CoreComponents
+      import ClusteringPhoenixWeb.CoreComponents
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -101,9 +101,9 @@ defmodule HelloWorldPhoenixWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: HelloWorldPhoenixWeb.Endpoint,
-        router: HelloWorldPhoenixWeb.Router,
-        statics: HelloWorldPhoenixWeb.static_paths()
+        endpoint: ClusteringPhoenixWeb.Endpoint,
+        router: ClusteringPhoenixWeb.Router,
+        statics: ClusteringPhoenixWeb.static_paths()
     end
   end
 
