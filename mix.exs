@@ -19,7 +19,7 @@ defmodule HelloWorldPhoenix.MixProject do
   def application do
     [
       mod: {HelloWorldPhoenix.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end
 
@@ -55,7 +55,7 @@ defmodule HelloWorldPhoenix.MixProject do
       {:swoosh, "~> 1.5"},
       {:tailwind, "~> 0.2.0", runtime: Mix.env() == :dev},
       {:telemetry_metrics, "~> 1.0"},
-      {:telemetry_poller, "~> 1.0"},
+      {:telemetry_poller, "~> 1.0"}
     ]
   end
 
