@@ -5,17 +5,17 @@ RUN mkdir /app
 
 # Install required packages
 ENV DEBIAN_FRONTEND=noninteractive
+ENV APP="/app"
 
+# inotify-tools required by live code reloading
 RUN apt update -qq && \
     apt install -y --no-install-recommends inotify-tools \
     ca-certificates \
     git && \
     apt clean && \
     apt autoclean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install hex, rebar and phoenix
-RUN mix local.hex --force && \
+    rm -rf /var/lib/apt/lists/* && \
+    mix local.hex --force && \
     mix local.rebar --force
 
 # Set /app as workdir
